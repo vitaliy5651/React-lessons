@@ -10,7 +10,7 @@ constructor(){
 }
 
 handleClick = (value) => {
-    let historyClick = this.state.id
+    const historyClick = [...this.state.id]
     if(historyClick.length >= 3){
         historyClick.shift()
     }
