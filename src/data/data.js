@@ -1,5 +1,6 @@
 import React from 'react';
-import View from '../view/showNews';
+import Buttons from '../buttons';
+
 import styles from './data.css'
 
 class Data extends React.Component{
@@ -31,6 +32,7 @@ class Data extends React.Component{
     )
 }
     render(){
+    
             const { error, isLoaded, news} = this.state;
     if (error) {
         return <div>Ошибка: {error.message}</div>;
@@ -40,10 +42,13 @@ class Data extends React.Component{
         <div className="sh2"></div>
         <h4 className="lt">loading</h4>
     </div>
-    } else {
+    }else {
         return (
-            <div className='wrapper'>
-            <View data = {news.articles} />
+            <div className='wrapper' style={styles} >
+            <div className='nav_list'>
+            <h1>News</h1>
+            <Buttons info = {news.articles}/>
+            </div>
             </div>
         );
     }
