@@ -1,10 +1,9 @@
-import Buttons from './buttons';
-import btn from './Buttons.css'
+import Data from './data/data';
 
 function App() {
-return(
-  <Buttons style = {btn}></Buttons>
-)
+    return(
+    <Data />
+    )
 }
 
 export default App;
