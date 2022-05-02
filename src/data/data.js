@@ -45,10 +45,7 @@ class Data extends React.Component{
     }else {
         return (
             <div className='wrapper' style={styles} >
-            <div className='nav_list'>
-            <h1>News</h1>
             <Buttons info = {news.articles}/>
-            </div>
             </div>
         );
     }
