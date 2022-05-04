@@ -1,39 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Buttons from '../buttons';
 
 import styles from './data.css'
 
-class Data extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            error: null,
-            isLoaded: false,
-            news: []
-        }
-    }
+const Data = () => {
+    const [error, setError] = useState(null);
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [news, setNews] = useState([]);
     
-    componentDidMount () {
+    useEffect (() => {
         fetch('https://newsapi.org/v2/everything?q=apple&from=2022-04-27&to=2022-04-27&sortBy=popularity&apiKey=7c847bba61dd4639a231e5a60c4986a7')
         .then(res => res.json())
         .then(
         (result) => {
-            this.setState({
-                isLoaded: true,
-                news: result
-            });
+                setIsLoaded(true);
+                setNews(result);
         },
         (error) => {
-            this.setState({
-            isLoaded: true,
-            error
-        });
+            setIsLoaded(true);
+            setError(error);
         }
     )
-}
-    render(){
+}, [])
     
-            const { error, isLoaded, news} = this.state;
     if (error) {
         return <div>Ошибка: {error.message}</div>;
     } else if (!isLoaded) {
@@ -50,5 +39,5 @@ class Data extends React.Component{
         );
     }
     }
-}
+
 export default Data
