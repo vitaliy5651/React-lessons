@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Buttons from '../buttons';
 
+
 import styles from './data.css'
 
 const Data = () => {
@@ -15,14 +16,15 @@ const Data = () => {
         (result) => {
                 setIsLoaded(true);
                 setNews(result);
-        },
+        },  
         (error) => {
             setIsLoaded(true);
             setError(error);
         }
     )
 }, [])
-    
+
+
     if (error) {
         return <div>Ошибка: {error.message}</div>;
     } else if (!isLoaded) {

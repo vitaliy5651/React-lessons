@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import btnStyle from './button.css'
+import CreateNews from './CreateNews/CreateNews';
 import View from './view/showNews';
 
 const Buttons = (props) => {
@@ -19,6 +20,7 @@ const Buttons = (props) => {
     return(
         <div className='btn_news' style={btnStyle}>
             <h1>News</h1>
+            <CreateNews setNewNews ={(value) => {setNews([...news, value])}}/>
             <div className='nav'>
             <button className='view_news' onClick={() =>{setFlag(!flag)}}>View all</button>
             <button className='reverse_news' onClick={() => {setNews([...news].reverse())}}>Change news</button>
