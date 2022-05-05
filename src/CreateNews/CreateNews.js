@@ -15,11 +15,10 @@ props.setNewNews(result)
 
 return (
     <div className='PostNews' style={styles}>
-        <form>
+        <form className='create_new'>
             <input  className='input' type = 'text' placeholder='Input title of news' onChange={e => setTitle(e.target.value)}/>
             <input value={content} className='input' type= 'text' placeholder='Input description of news' onChange={e => setContent(e.target.value)}/>
             <input value={imgPath} className= 'input' type = 'text' placeholder = 'Insert image link' onChange= {e => setImgPath(e.target.value)}></input>
-            {/*<input  accept ='image/*' type = 'file' onChange={e => setFile(e.target.files[0].name)}/>*/}
             <button className='btn_submit' onClick={createNews}>Submit</button>
         </form>
     </div>

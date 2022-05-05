@@ -4,7 +4,6 @@ import styles from './show.css'
 const Single = (props) => {
     const [ flag, setFlag] = useState(true)
     const [ index ] = useState(props.value)
-    
         return (
             <div className='news_content' style={styles}>
                 <div className='current_image'>
