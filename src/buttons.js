@@ -4,64 +4,64 @@ import CreateNews from "./CreateNews/CreateNews";
 import View from "./view/showNews";
 
 const Buttons = (props) => {
-  const [news, setNews] = useState(props.info);
-  const [flag, setFlag] = useState(true);
+const [news, setNews] = useState(props.info);
+const [flag, setFlag] = useState(true);
 
-  function searchNews(event) {
+function searchNews(event) {
     const searchNew = event.target.value;
     const newFilter = [...news].filter((value) => {
-      return value.title.toLowerCase().includes(searchNew.toLowerCase());
+    return value.title.toLowerCase().includes(searchNew.toLowerCase());
     });
     if (newFilter.length === 0) {
-      setNews(props.info);
+    setNews(props.info);
     } else {
-      setNews(newFilter);
+    setNews(newFilter);
     }
-  }
+}
 
-  return (
+return (
     <div className="btn_news" style={btnStyle}>
-      <h1>News</h1>
-      <CreateNews
+    <h1>News</h1>
+    <CreateNews
         setNewNews={(value) => {
-          setNews([value,...news]);
+        setNews([value,...news]);
         }}
-      />
-      <div className="nav">
-        <button
-          className="view_news"
-          onClick={() => {
+    />
+    <div className="nav">
+        <button 
+        className="view_news"
+        onClick={() => {
             setFlag(!flag);
-          }}
+        }}
         >
-          View all
+        View all
         </button>
         <button
-          className="reverse_news"
-          onClick={() => {
+        className="reverse_news"
+        onClick={() => {
             setNews([...news].reverse());
-          }}
+        }}
         >
-          Change news
+        Change news
         </button>
         <button
-          className="home"
-          onClick={() => {
+        className="home"
+        onClick={() => {
             setNews(props.info);
-          }}
+        }}
         >
-          Home
+        Home
         </button>
-      </div>
-      <input
+    </div>
+    <input
         className="input"
         type="text"
         placeholder="Input News"
         onChange={searchNews}  >
         </input>
-      <View data={flag ? [news[0]] : news} />
+    <View data={flag ? [news[0]] : news} />
     </div>
-  );
+);
 };
 
 export default Buttons;

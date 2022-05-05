@@ -10,8 +10,13 @@ const Single = (props) => {
                 <img alt='img' src={index.urlToImage} />
                 </div>
                 <div className='current_title'>{index.title}</div>
-                {flag && <div className='current_description'>{index.content}</div>}
-                <button className='view_btn' onClick={() => {setFlag(!flag)}}>View more</button>
+                {flag && 
+                <div className='current_description'>{index.content}</div>
+                }
+                <button className='view_btn' 
+                onClick={() => {setFlag(!flag)}}>
+                View more
+                </button>
             </div>
         )
 }
