@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import btnStyle from "./button.css";
-import CreateNews from "./CreateNews/CreateNews";
-import View from "./view/showNews";
+import CreateNews from "../CreateNews/CreateNews";
+import ShowNews from "../ShowNews/showNews";
 
 const Buttons = (props) => {
     const [news, setNews] = useState(props.info);
@@ -42,7 +42,7 @@ const Buttons = (props) => {
                         setNews([...news].reverse());
                     }}
                 >
-                    Change news
+                    Reverse news
                 </button>
                 <button
                     className="home"
@@ -59,7 +59,7 @@ const Buttons = (props) => {
                 placeholder="Input News"
                 onChange={searchNews}  >
             </input>
-            <View data={flag ? [news[0]] : news} />
+            <ShowNews data={flag ? [news[0]] : news} />
         </div>
     );
 };

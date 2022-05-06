@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import show from "./show.css";
 import { useState } from "react";
 
-const View = (props) => {
+const ShowNews = (props) => {
     const [ flag ] = useState(false)
 
     return (
@@ -15,4 +15,4 @@ const View = (props) => {
     );
 };
 
-export default View;
+export default ShowNews;

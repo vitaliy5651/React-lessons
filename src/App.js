@@ -1,4 +1,4 @@
-import Data from "./data/data";
+import Data from "./Components/data/data";
 
 function App() {
     return <Data />;
