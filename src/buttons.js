@@ -1,34 +1,61 @@
 import React from 'react';
-import Histories from './history';
+import btnStyle from './button.css'
+import View from './view/showNews';
 
 class Buttons extends React.Component{
-constructor(){
-    super()
-    this.state = {
-        id: []
+    constructor(props){
+        super(props)
+        this.state = {
+            flag: true,
+            news: this.props.info
+        }
     }
-}
-
-handleClick = (value) => {
-    const historyClick = [...this.state.id]
-    if(historyClick.length >= 3){
-        historyClick.shift()
+    searchNews = (event) => {
+        const searchNew = event.target.value
+        const newFilter = [...this.state.news].filter((value) => 
+        {return value.title.toLowerCase().includes(searchNew.toLowerCase())})
+        if (newFilter.length === 0) {
+            this.setState({news: this.props.info})
+        } else {
+            this.setState({news: newFilter})
+        }
     }
-    historyClick.push(value)
-    this.setState({id: historyClick})
-}
-
 render(){
     return(
-        <div className='wrapper'>
-        <div className='btn'>
-            <button onClick={() =>this.handleClick(1)}>1</button>
-            <button onClick={() =>this.handleClick(2)}>2</button>
-            <button onClick={() =>this.handleClick(3)}>3</button>
-            <button onClick={() =>this.handleClick(4)}>4</button>
-            <button onClick={() =>this.handleClick(5)}>5</button>
-        </div>
-        <Histories getValue = {this.state.id} ></Histories>
+        <div className='btn_news' style={btnStyle}>
+            <h1>News</h1>
+            <div className='nav'>
+            <button 
+            className='view_news' 
+            onClick={() =>{
+                this.setState((state) => 
+                ({flag: !state.flag}))}
+                }>
+                View all
+                </button>
+            <button 
+            className='reverse_news' 
+            onClick={() => {
+                this.setState((state) => 
+                ({news: state.news.reverse()}))}
+                }>
+                Change news
+                </button>
+            <button 
+            className='home' 
+            onClick={() => 
+            {this.setState({news: this.props.info})}
+            }>
+            Home
+            </button>
+            </div>
+            <input 
+            className='input'  
+            type = 'text' 
+            placeholder='Input News' 
+            onChange={this.searchNews}>
+            </input>
+            <View data = {this.state.flag ? [this.state.news[0]] : this.state.news} />
         </div>
     )
 }
