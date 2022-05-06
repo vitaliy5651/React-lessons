@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Buttons from "../buttons";
-
 import styles from "./data.css";
 
 const Data = () => {

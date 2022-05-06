@@ -1,6 +1,5 @@
 import Single from "./singleNews";
 import { v4 as uuidv4 } from "uuid";
-
 import show from "./show.css";
 
 const View = (props) => {
