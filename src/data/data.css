@@ -53,3 +53,9 @@
     font-weight: 100;
     letter-spacing: 10px;
 }
+.wrapper{
+  text-align: center;
+  position: relative;
+  bottom: 30px;
+}
+

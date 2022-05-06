@@ -1,7 +1,7 @@
 import Data from "./data/data";
 
 function App() {
-  return <Data />;
+    return <Data />;
 }
 
 export default App;
