@@ -5,7 +5,7 @@ const Single = (props) => {
     const [flag, setFlag] = useState(props.flag);
     const [index] = useState(props.value);
 
-    console.log(props.flag)
+    
     return (
         <div className="news_content" style={styles}>
             <div className="current_image">

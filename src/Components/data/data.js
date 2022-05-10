@@ -1,11 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Buttons from "../UI/buttons";
 import styles from "./data.css";
+import store from "../../store";
+import { useSelector } from "react-redux";
+
 
 const Data = () => {
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [news, setNews] = useState([]);
+    //const [error, setError] = useState(null);
+    //const [isLoaded, setIsLoaded] = useState(false);
+    //const [news, setNews] = useState([]);
+
+    const newStore = useSelector((state) => state.fetchNewsReducer)
 
     useEffect(() => {
         fetch(
@@ -14,18 +19,16 @@ const Data = () => {
             .then((res) => res.json())
             .then(
                 (result) => {
-                    setIsLoaded(true);
-                    setNews(result);
+                    store.dispatch({type: 'fetch_success', promise: result.articles})
                 },
                 (error) => {
-                    setIsLoaded(true);
-                    setError(error);
+                    store.dispatch({type: 'fetch_error', error})
                 }
             );
     }, []);
 
-    error && <div>Ошибка: {error.message}</div>;
-    if (!isLoaded) {
+    newStore.error && <div>Ошибка: {newStore.error.message}</div>;
+    if (!newStore.isLoaded) {
         return (
             <div className="cssloader" style={styles}>
                 <div className="sh1"></div>
@@ -36,10 +39,10 @@ const Data = () => {
     } else {
         return (
             <div className="wrapper" style={styles}>
-                <Buttons info={news.articles} />
+                <Buttons info={newStore.news} />
             </div>
         );
     }
 };
 
-export default Data;
+export default Data
