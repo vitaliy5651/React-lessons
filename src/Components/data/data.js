@@ -6,12 +6,8 @@ import { useSelector } from "react-redux";
 
 
 const Data = () => {
-    //const [error, setError] = useState(null);
-    //const [isLoaded, setIsLoaded] = useState(false);
-    //const [news, setNews] = useState([]);
 
     const newStore = useSelector((state) => state.fetchNewsReducer)
-
     useEffect(() => {
         fetch(
             "https://newsapi.org/v2/everything?q=apple&from=2022-04-27&to=2022-04-27&sortBy=popularity&apiKey=7c847bba61dd4639a231e5a60c4986a7"
@@ -19,6 +15,7 @@ const Data = () => {
             .then((res) => res.json())
             .then(
                 (result) => {
+                    
                     store.dispatch({type: 'fetch_success', promise: result.articles})
                 },
                 (error) => {

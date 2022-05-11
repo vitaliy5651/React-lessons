@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./show.css";
 
 const Single = (props) => {
-    const [flag, setFlag] = useState(props.flag);
+    const [flag, setFlag] = useState(true);
     const [index] = useState(props.value);
 
     
