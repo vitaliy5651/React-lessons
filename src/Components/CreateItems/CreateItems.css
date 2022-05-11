@@ -7,8 +7,8 @@ input[type=text] {
 }
 
 .btn_submit {
-    width: 80px;
-    height: 40px;
+    width: 160px;
+    height: 45px;
     appearance: none;
     border: 0;
     border-radius: 5px;

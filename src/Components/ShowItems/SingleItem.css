@@ -1,0 +1,17 @@
+.item_image{
+    height: 400px;
+}
+
+.single_item{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    width: 125vh;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+.Admin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
