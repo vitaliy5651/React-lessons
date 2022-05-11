@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import { ProductContext } from "../../App";
 import CreateItem from "../CreateItems/CreateItems";
+import Edit from "../EditProduct";
 import SingleItem from "../ShowItems/SingleItem";
 
 const Admin = () =>{
-
+    const productContext = useContext(ProductContext)
     return (
         <div className="Admin">
-            <CreateItem />
+            {productContext.productsState.flag ? <CreateItem /> : <Edit />}
             <SingleItem/>
         </div>
     )

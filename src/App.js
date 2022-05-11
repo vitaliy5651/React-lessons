@@ -4,6 +4,7 @@ import Home from './Components/Home/home';
 import React, { useReducer } from 'react';
 import fetchProductsReducer, { initialState } from './reducers/products.reducers';
 import Admin from './Components/Admin/Admin';
+import User from './Components/User/User';
 //import Data from './Components/data/data';
 
 export const ProductContext = React.createContext()
@@ -25,7 +26,7 @@ function App() {
     <Routes >
       <Route path = {'/'} element = {<Home />}></Route>
       <Route path={'/Admin_part'} element = {<Admin />}></Route>
-      <Route path = {'/User_part'} element = {''}></Route>
+      <Route path = {'/User_part'} element = {<User />}></Route>
       <Route path={'/Profile'} element = {''}></Route>
     </Routes>
     </div>

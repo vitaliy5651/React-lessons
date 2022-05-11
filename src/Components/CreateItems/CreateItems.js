@@ -10,15 +10,14 @@ const [title, setTitle ] = useState("");
 const [description, setDescription] = useState("");
 const [ imgPath, setImgPath] = useState("");
 
-
-function createNews(e) {
+function createProduct(e) {
     e.preventDefault();
-    const result = { id: uuidv4(), title, description, urlToImage: imgPath };
+    const result = { id: uuidv4(), title, description, urlToImg: imgPath };
     productContext.productsDispatch({type: 'Add_products', result})
 }
 return(
-    <div className="PostNews" style={styles}>
-    <form className="create_new">
+    <div className="PostProducts" style={styles}>
+    <form className="create_product">
         <input
             value={title}
             className="input"
@@ -37,10 +36,10 @@ return(
             value={imgPath}
             className="input"
             type="text"
-            placeholder="вставьте ссылку на картинку вашего товара"
+            placeholder="Вставьте ссылку на картинку вашего товара"
             onChange={(e) => setImgPath(e.target.value)}
         ></input>
-        <button className="btn_submit" onClick={createNews}>
+        <button className="btn_submit" onClick={createProduct}>
             Добавить товар
         </button>
     </form>

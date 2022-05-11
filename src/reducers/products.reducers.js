@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from 'uuid';
 export const initialState = {
-
+    el:{},
     items: [{
         id: uuidv4(),
         title: 'Смартфон Apple iPhone 11 128GB (PRODUCT)RED™ (красный)',
@@ -61,6 +61,7 @@ export const initialState = {
         description: 'Apple iOS, экран 6.1" OLED (1170x2532), Apple A14 Bionic, флэш-память 64 ГБ, камера 12 Мп, аккумулятор 2815 мАч, 1 SIM',
         urlToImg: 'https://content2.onliner.by/catalog/device/header/e4d9b3df1aefa23c1193f230b958bae0.jpeg'
     }],
+    flag: true
 }
 
 export default function fetchProductsReducer(state = initialState, action){
@@ -69,6 +70,16 @@ export default function fetchProductsReducer(state = initialState, action){
             return {items: state.items.filter(el => el.id !== action.id)}
         case 'Add_products':
             return {items: [action.result, ...state.items]}
+        case 'SendproductToUpdate':
+            return {items: state.items, el: action.el, flag: false}
+        case 'Update_product':
+            return {...state,flag:!state.flag, items: state.items.map((el) => { if(el.id === action.result.id){
+                el = action.result
+            }
+            return el
+        })}
+        case 'SearchProduct':
+            return{...state, items: state.items.filter((el) => el.title.toLowerCase().includes(action.item.toLowerCase()))}
         default:
             return state
     }
