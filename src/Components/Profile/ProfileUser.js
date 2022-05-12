@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import ProfileReducer, { initialState } from "../../reducers/profile.reducer";
-import Form from "./formComponent";
+import FormProfile from "./formProfile";
 import styles from "./ProfileUser.css"
 
 export const ProfileContext = React.createContext()
@@ -9,7 +9,7 @@ const Profile = () => {
 return(
     <ProfileContext.Provider value={{profileState: profile, profileDispatch: dispatch}}>
     <div className="Profile" style={styles}>
-    <Form />
+    <FormProfile />
     <div className="user_data">
         <div className="user_name">{profile.user.name}</div>
         <div className="user_surname">{profile.user.surname}</div>

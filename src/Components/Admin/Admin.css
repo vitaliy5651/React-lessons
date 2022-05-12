@@ -19,11 +19,7 @@ input[type=text] {
     cursor: pointer;
 }
 
-.create_product{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
+
 .update_product{
     display: flex;
     align-items: center;

@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { ProductContext } from "../../App";
-import CreateItem from "../CreateItems/CreateItems";
-import Edit from "../EditProduct";
+import CreateItem from "../CreateItem";
+import Edit from "../EditItem";
 import SingleItem from "../ShowItems/SingleItem";
 
 const Admin = (props) =>{
@@ -9,7 +9,7 @@ const Admin = (props) =>{
     return (
         <div className="Admin">
             {productContext.productsState.flag ? <CreateItem /> : <Edit />}
-            <SingleItem isAdmin = {props.isAdmin}/>
+            <SingleItem isAdmin = {props.isAdmin} />
         </div>
     )
 }

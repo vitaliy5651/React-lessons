@@ -3,11 +3,11 @@ import { ProfileContext } from "./ProfileUser";
 
 
 
-const Form = () => {
+const FormProfile = () => {
     const profileContext = useContext(ProfileContext)
     const [name, setName] = useState('')
     const [surname, setSurname] = useState('')
-    const [cartNumber, setCartNumber] = useState()
+    const [cartNumber, setCartNumber] = useState('')
     function updateUser (e){
         e.preventDefault();
         const result = { name, surname, cartNumber };
@@ -40,4 +40,4 @@ const Form = () => {
     )
 }
 
-export default Form
+export default FormProfile

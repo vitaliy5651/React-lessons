@@ -69,11 +69,11 @@ export default function fetchProductsReducer(state = initialState, action){
         case 'delete_product':
             return {items: state.items.filter(el => el.id !== action.id)}
         case 'Add_products':
-            return {items: [action.result, ...state.items]}
+            return {...state,items: [action.result, ...state.items]}
         case 'SendproductToUpdate':
             return {items: state.items, el: action.el, flag: false}
         case 'Update_product':
-            return {...state,flag:!state.flag, items: state.items.map((el) => { if(el.id === action.result.id){
+            return { flag:!state.flag, items: state.items.map((el) => { if(el.id === action.result.id){
                 el = action.result
             }
             return el
