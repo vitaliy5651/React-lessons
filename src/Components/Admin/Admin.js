@@ -4,12 +4,12 @@ import CreateItem from "../CreateItems/CreateItems";
 import Edit from "../EditProduct";
 import SingleItem from "../ShowItems/SingleItem";
 
-const Admin = () =>{
+const Admin = (props) =>{
     const productContext = useContext(ProductContext)
     return (
         <div className="Admin">
             {productContext.productsState.flag ? <CreateItem /> : <Edit />}
-            <SingleItem/>
+            <SingleItem isAdmin = {props.isAdmin}/>
         </div>
     )
 }

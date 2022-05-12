@@ -1,0 +1,9 @@
+.update_profile{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.user_data{
+    text-align: center;
+}

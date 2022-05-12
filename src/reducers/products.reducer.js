@@ -79,7 +79,7 @@ export default function fetchProductsReducer(state = initialState, action){
             return el
         })}
         case 'SearchProduct':
-            return{...state, items: state.items.filter((el) => el.title.toLowerCase().includes(action.item.toLowerCase()))}
+            return {...state, items: state.items.filter((el) => el.title.toLowerCase().includes(action.item.toLowerCase()))}
         default:
             return state
     }

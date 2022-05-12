@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import { ProductContext } from "../../App";
 import SingleItem from "../ShowItems/SingleItem";
 
-const User = () => {
+const User = (props) => {
     const productContext = useContext(ProductContext)
     const [ item, setItem ] = useState('')
+
     return(
     <div className="User">
         <input
@@ -14,7 +15,7 @@ const User = () => {
             onChange={(e) => {setItem(e.target.value)}}  >
         </input>
         <button className="btn_search" onClick={() => {productContext.productsDispatch({type: 'SearchProduct', item})}}>Найти товар</button>
-        <SingleItem />
+        <SingleItem isAdmin = {props.isAdmin}/>
     </div>
     )
 }

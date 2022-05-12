@@ -5,7 +5,7 @@ import { ProductContext } from "../../App";
 import styles from './SingleItem.css'
 
 //productContext.productsState.items
-const SingleItem = () => {
+const SingleItem = (props) => {
     const productContext = useContext(ProductContext)
 
 
@@ -18,10 +18,10 @@ const SingleItem = () => {
             <img alt="img" className="item_image" src={el.urlToImg}/>
             </div>
             <div className="item_description">{el.description}</div>
-            <div className="btn">
+            {props.isAdmin && <div className="btn">
             <button className="delete_item" onClick={() => {productContext.productsDispatch({type: 'delete_product', id: el.id})}}>delete</button>
             <button className="change_item" onClick={() => {productContext.productsDispatch({type: 'SendproductToUpdate', el})}}>change</button>
-            </div>
+            </div>}
             </div>
             )
         }
