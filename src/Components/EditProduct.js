@@ -5,9 +5,9 @@ import { ProductContext } from "../App";
 
 const Edit = () =>{
     const productContext = useContext(ProductContext)
-const [title, setTitle ] = useState(productContext.productsState.el.title);
-const [description, setDescription] = useState(productContext.productsState.el.description);
-const [ imgPath, setImgPath] = useState(productContext.productsState.el.urlToImg);
+const [title, setTitle ] = useState('');
+const [description, setDescription] = useState('');
+const [ imgPath, setImgPath] = useState('');
 function updateProduct(e) {
     e.preventDefault();
     const result = { id: productContext.productsState.el.id, title, description, urlToImg: imgPath };

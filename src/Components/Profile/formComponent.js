@@ -1,17 +1,17 @@
-import React, { useReducer, useState } from "react";
-import ProfileReducer, { initialState } from "../../reducers/profile.reducer";
+import React, { useContext, useState } from "react";
+import { ProfileContext } from "./ProfileUser";
+
 
 
 const Form = () => {
-    const [ profile , dispatch] = useReducer(ProfileReducer, initialState)
+    const profileContext = useContext(ProfileContext)
     const [name, setName] = useState('')
     const [surname, setSurname] = useState('')
     const [cartNumber, setCartNumber] = useState()
-
     function updateUser (e){
         e.preventDefault();
         const result = { name, surname, cartNumber };
-        dispatch({type: 'Update_user', result})
+        profileContext.profileDispatch({type: 'Update_User', result})
     }
     return(
 <form className="update_profile">

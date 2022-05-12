@@ -3,10 +3,11 @@ import ProfileReducer, { initialState } from "../../reducers/profile.reducer";
 import Form from "./formComponent";
 import styles from "./ProfileUser.css"
 
-
+export const ProfileContext = React.createContext()
 const Profile = () => {
-    const [ profile ] = useReducer(ProfileReducer, initialState)
+    const [profile , dispatch] = useReducer(ProfileReducer, initialState)
 return(
+    <ProfileContext.Provider value={{profileState: profile, profileDispatch: dispatch}}>
     <div className="Profile" style={styles}>
     <Form />
     <div className="user_data">
@@ -15,6 +16,7 @@ return(
         <div className="user_cartNumber">{profile.user.cartNumber}</div>
     </div>
     </div>
+    </ProfileContext.Provider>
 )
 }
 
