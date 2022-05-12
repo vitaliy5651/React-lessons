@@ -12,7 +12,7 @@ class Buttons extends React.Component{
     }
     searchNews = (event) => {
         const searchNew = event.target.value
-        const newFilter = [...this.state.news].filter((value) => 
+        const newFilter = this.state.news.filter((value) => 
         {return value.title.toLowerCase().includes(searchNew.toLowerCase())})
         if (newFilter.length === 0) {
             this.setState({news: this.props.info})
