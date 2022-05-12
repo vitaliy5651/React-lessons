@@ -1,15 +1,17 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./CreateNews.css";
 
-const CreateNews = (props) => {
+const CreateNews = () => {
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
     const [imgPath, setImgPath] = useState("");
 
+    const dispatch = useDispatch()
     function createNews(e) {
         e.preventDefault();
         const result = { title, content, urlToImage: imgPath };
-        props.setNewNews(result);
+        dispatch({type: 'ADD_NEW', result})
     }
 
     return (

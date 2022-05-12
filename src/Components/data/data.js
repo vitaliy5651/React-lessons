@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 
 
 const Data = () => {
-
     const newStore = useSelector((state) => state.fetchNewsReducer)
     useEffect(() => {
         fetch(
@@ -23,7 +22,6 @@ const Data = () => {
                 }
             );
     }, []);
-
     newStore.error && <div>Ошибка: {newStore.error.message}</div>;
     if (!newStore.isLoaded) {
         return (
@@ -36,7 +34,7 @@ const Data = () => {
     } else {
         return (
             <div className="wrapper" style={styles}>
-                <Buttons info={newStore.news} />
+                <Buttons />
             </div>
         );
     }
