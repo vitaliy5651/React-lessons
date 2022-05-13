@@ -2,24 +2,30 @@ export const initialState = {
   el: {},
   items: [],
   flag: true,
+  isLoad: true,
+  btnFlag: true
 };
 
 export default function fetchProductsReducer(state = initialState, action) {
-  console.log(action.key)
   switch (action.type) {
     case "Set_Products":
-      return { ...state, items: action.data }
+      return { ...state, items: action.data, isLoad: !state.isLoad, btnFlag: !state.btnFlag}
     case "delete_product":
       return {
         ...state,
-        items: state.items.filter((el) => el.title !== action.el.title),
+        items: state.items.filter((el) => el.id !== action.el.id),
       };
     case "Add_products":
       return { ...state, items: [action.result, ...state.items] };
     case "SendproductToUpdate":
-      return { items: state.items, el: action.el, flag: false };
+      return {
+           ...state,
+        items: state.items,
+         el: action.el, 
+         flag: false };
     case "Update_product":
       return {
+        ...state,
         el: "",
         flag: !state.flag,
         items: state.items.map((el) => {

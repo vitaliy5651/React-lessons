@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 
 import styles from './SingleItem.css'
+import { DeleteProducts, SendProductToUpdate } from "../../actions/products.actions";
 
 const SingleItem = (props) => {
     const products = useSelector((state) => state.fetchProductsReducer)
@@ -19,8 +20,8 @@ const SingleItem = (props) => {
             </div>
             <div className="item_description">{el.description}</div>
             {props.isAdmin && <div className="btn">
-            <button className="delete_item" onClick={() => {dispatch({type: 'delete_product', el})}}>delete</button>
-            <button className="change_item" onClick={() => {dispatch({type: 'SendproductToUpdate', key: el.key})}}>change</button>
+            <button className="delete_item" onClick={() => {dispatch(DeleteProducts(el))}}>delete</button>
+            <button className="change_item" onClick={() => {dispatch(SendProductToUpdate(el))}}>change</button>
             </div>}
             </div>
             )

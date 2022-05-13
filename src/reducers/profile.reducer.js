@@ -1,15 +1,13 @@
 export const initialState = {
-    user:{
-            name: 'Елена',
-            surname: 'Шапошникова',
-            cartNumber: '8888888888888'
-        }
+    users:[]
 }
 
 export default function ProfileReducer(state = initialState, action){
     switch(action.type){
+        case 'Set_Users':
+            return {users: action.data}
         case 'Update_User':
-            return { user: action.result}
+            return { users: action.result}
         default: 
         return state
     }

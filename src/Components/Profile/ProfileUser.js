@@ -1,22 +1,25 @@
-import React, { useReducer } from "react";
-import ProfileReducer, { initialState } from "../../reducers/profile.reducer";
+import React from "react";
+import { useSelector } from "react-redux";
+import { v4 as uuidv4 } from 'uuid';
+import GetButton from "../Mybutton";
 import FormProfile from "./formProfile";
 import styles from "./ProfileUser.css"
 
-export const ProfileContext = React.createContext()
+
 const Profile = () => {
-    const [profile , dispatch] = useReducer(ProfileReducer, initialState)
+    const getUsers = useSelector((state) => state.ProfileReducer)
 return(
-    <ProfileContext.Provider value={{profileState: profile, profileDispatch: dispatch}}>
     <div className="Profile" style={styles}>
     <FormProfile />
-    <div className="user_data">
-        <div className="user_name">{profile.user.name}</div>
-        <div className="user_surname">{profile.user.surname}</div>
-        <div className="user_cartNumber">{profile.user.cartNumber}</div>
+    <GetButton isProduct = {false}/>
+    {getUsers.users.map((el) => {return(
+    <div className="user_data" key={uuidv4('')}>
+        <div className="user_name">{el.name}</div>
+        <div className="user_username">{el.username}</div>
+        <div className="user_email">{el.email}</div>
     </div>
+    )})}
     </div>
-    </ProfileContext.Provider>
 )
 }
 

@@ -1,4 +1,4 @@
-.update_profile{
+.Profile{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -6,4 +6,10 @@
 
 .user_data{
     text-align: center;
+}
+
+.update_profile{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
 }

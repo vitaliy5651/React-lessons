@@ -1,17 +1,19 @@
-import React, { useContext, useState } from "react";
-import { ProfileContext } from "./ProfileUser";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { UpdateUser } from "../../actions/users.action";
+
 
 
 
 const FormProfile = () => {
-    const profileContext = useContext(ProfileContext)
     const [name, setName] = useState('')
-    const [surname, setSurname] = useState('')
-    const [cartNumber, setCartNumber] = useState('')
+    const [username, setUsername] = useState('')
+    const [email, setEmail] = useState('')
+    const dispatch = useDispatch()
     function updateUser (e){
         e.preventDefault();
-        const result = { name, surname, cartNumber };
-        profileContext.profileDispatch({type: 'Update_User', result})
+        const result = { name, username, email };
+        dispatch(UpdateUser(result))
     }
     return(
 <form className="update_profile">
@@ -25,13 +27,13 @@ const FormProfile = () => {
             className="input"
             type="text"
             placeholder="Введите другую фамилию"
-            onChange={(e) => {setSurname(e.target.value)}}
+            onChange={(e) => {setUsername(e.target.value)}}
         />
         <input
             className="input"
             type="text"
             placeholder="Введите другой номер карточки"
-            onChange={(e) => {setCartNumber(e.target.value)}}
+            onChange={(e) => {setEmail(e.target.value)}}
         ></input>
         <button className="btn_submit" onClick={updateUser}>
             Изменить данные

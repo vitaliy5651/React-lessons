@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
+import { v4 as uuidv4 } from 'uuid';
+import { AddProducts, UpdateProduct } from "../actions/products.actions";
 
 const Form = (props) => {
   const products = useSelector((state) => state.fetchProductsReducer)
@@ -11,8 +12,8 @@ const Form = (props) => {
 
   function createProduct(e) {
     e.preventDefault();
-    const result = { id: uuidv4(), title, description, urlToImg: imgPath };
-    dispatch({ type: "Add_products", result });
+    const result = {id: uuidv4(), title, description, urlToImg: imgPath };
+    dispatch(AddProducts(result));
   }
 
   function updateProduct(e) {
@@ -23,7 +24,7 @@ const Form = (props) => {
       description,
       urlToImg: imgPath,
     };
-    dispatch({ type: "Update_product", result });
+    dispatch(UpdateProduct(result))
   }
 
   useEffect(() => {
