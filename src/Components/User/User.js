@@ -1,10 +1,11 @@
-import React, { useContext, useState } from "react";
-import { ProductContext } from "../../App";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import SingleItem from "../ShowItems/SingleItem";
 
 const User = (props) => {
-    const productContext = useContext(ProductContext)
     const [ item, setItem ] = useState('')
+
+    const dispatch = useDispatch()
 
     return(
     <div className="User">
@@ -14,7 +15,7 @@ const User = (props) => {
             placeholder="Введите название товара"
             onChange={(e) => {setItem(e.target.value)}}  >
         </input>
-        <button className="btn_search" onClick={() => {productContext.productsDispatch({type: 'SearchProduct', item})}}>Найти товар</button>
+        <button className="btn_search" onClick={() => {dispatch({type: 'SearchProduct', item})}}>Найти товар</button>
         <SingleItem isAdmin = {props.isAdmin}/>
     </div>
     )

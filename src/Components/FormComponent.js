@@ -1,9 +1,10 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { v4 as uuidv4 } from "uuid";
-import { ProductContext } from "../App";
 
 const Form = (props) => {
-  const productContext = useContext(ProductContext);
+  const products = useSelector((state) => state.fetchProductsReducer)
+  const dispatch = useDispatch()
   const [title, setTitle] = useState();
   const [description, setDescription] = useState();
   const [imgPath, setImgPath] = useState();
@@ -11,37 +12,37 @@ const Form = (props) => {
   function createProduct(e) {
     e.preventDefault();
     const result = { id: uuidv4(), title, description, urlToImg: imgPath };
-    productContext.productsDispatch({ type: "Add_products", result });
+    dispatch({ type: "Add_products", result });
   }
 
   function updateProduct(e) {
     e.preventDefault();
     const result = {
-      id: productContext.productsState.el.id,
+      id: products.el.id,
       title,
       description,
       urlToImg: imgPath,
     };
-    productContext.productsDispatch({ type: "Update_product", result });
+    dispatch({ type: "Update_product", result });
   }
 
   useEffect(() => {
     setTitle(
-      productContext.productsState.el === ""
+      products.el === ""
         ? ""
-        : productContext.productsState.el.title
+        : products.el.title
     );
     setDescription(
-      productContext.productsState.el === ""
+      products.el === ""
         ? ""
-        : productContext.productsState.el.description
+        : products.el.description
     );
     setImgPath(
-      productContext.productsState.el === ""
+      products.el === ""
         ? ""
-        : productContext.productsState.el.urlToImg
+        : products.el.urlToImg
     );
-  }, [productContext.productsState.el]);
+  }, [products.el]);
 
   return (
     <form className="update_product">

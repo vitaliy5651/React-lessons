@@ -1,18 +1,19 @@
-import React, { useContext } from "react";
-import { ProductContext } from "../../App";
+import React from "react";
 import Form from "../FormComponent";
 import styles from './Admin.css'
-//import CreateItem from "../CreateItem";
-//import Edit from "../EditItem";
 import SingleItem from "../ShowItems/SingleItem";
+import GetButton from "../Mybutton";
+import { useSelector } from "react-redux";
+
 
 const Admin = (props) =>{
-    const productContext = useContext(ProductContext)
+const products = useSelector((state) => state.fetchProductsReducer)
     return (
         <div className="Admin">
             {<div className="PostProducts" style={styles}>
-            <Form isCreate = {productContext.productsState.flag} />
+            <Form isCreate = {products.items.flag} />
             </div>}
+            <GetButton />
             <SingleItem isAdmin = {props.isAdmin} />
         </div>
     )

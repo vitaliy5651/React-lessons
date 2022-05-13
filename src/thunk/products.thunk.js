@@ -1,11 +1,19 @@
-import { getProductsQuery } from "../services/products.service";
+import { productsQuery } from "../services/products.service";
 
-export const getAllProducts = () => (dispatch) => {
-    getProductsQuery().then(response => response.json())
+
+
+export const allProducts = () => (dispatch) => {
+  console.log("enter func");
+    productsQuery().then((response) => response.json())
     .then((data) => {
-        dispatch({type: 'Set_Products', data})
+      dispatch({
+        type: "Set_Products",
+        data
+      });
+      console.log(data);
     })
     .catch((err) => {
-        dispatch({type: 'Set_Err', data: err})
-    })
-}
+      dispatch({ type: "Set_Err", data: err });
+    });
+};
+
