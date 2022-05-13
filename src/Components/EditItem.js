@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import styles from '../Components/Admin/Admin.css'
 import Form from "./FormComponent";
 
@@ -11,4 +11,4 @@ const Edit = () =>{
     )
 }
 
-export default Edit
+export default Edit*/
