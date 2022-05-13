@@ -8,7 +8,7 @@ const Form = (props) => {
     const [title, setTitle ] = useState('');
     const [description, setDescription] = useState('');
     const [ imgPath, setImgPath] = useState('');
-    
+
     function createProduct(e) {
         e.preventDefault();
         const result = { id: uuidv4(), title, description, urlToImg: imgPath };
