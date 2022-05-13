@@ -89,7 +89,10 @@ export const initialState = {
 export default function fetchProductsReducer(state = initialState, action) {
   switch (action.type) {
     case "delete_product":
-      return { items: state.items.filter((el) => el.id !== action.id) };
+      return {
+        ...state,
+        items: state.items.filter((el) => el.id !== action.id) 
+    };
     case "Add_products":
       return { ...state, items: [action.result, ...state.items] };
     case "SendproductToUpdate":
