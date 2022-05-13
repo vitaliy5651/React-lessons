@@ -3,7 +3,6 @@ import { productsQuery } from "../services/products.service";
 
 
 export const allProducts = () => (dispatch) => {
-  console.log("enter func");
     productsQuery().then((response) => response.json())
     .then((data) => {
       dispatch({
