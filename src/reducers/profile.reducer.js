@@ -21,6 +21,11 @@ export default function ProfileReducer(state = initialState, action){
                 ...state,
                 users: action.result
             }
+        case 'Check_Auth':
+            return {
+                ...state,
+                isAuth: !action.isAuth
+            }
         default: 
         return state
     }

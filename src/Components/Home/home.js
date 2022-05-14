@@ -1,9 +1,11 @@
 import React from "react";
+import LoginButton from "../LoginButton";
 import home from './home.css'
 
 const Home = () => {
 return (
     <div className="Home" style={home}>
+    <LoginButton />
         <div className="home_title">Здарова!!! Страница создана для того чтобы ты смог(ла) полюбоваться на картинки красивых Iphone, на которые у тебя нет денег :)</div>
         <div className="home_img">
         <img alt="img" className="img" src={'https://images.macrumors.com/t/I3UxQHvDSVyqt5FR4qiWg3vxHuY=/1600x0/filters:quality(90)/article-new/2020/07/iphone-12-compared-c.jpg'} />
