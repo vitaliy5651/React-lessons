@@ -26,13 +26,13 @@ const FormProfile = () => {
         <input
             className="input"
             type="text"
-            placeholder="Введите другую фамилию"
+            placeholder="Введите другое имя пользователя"
             onChange={(e) => {setUsername(e.target.value)}}
         />
         <input
             className="input"
             type="text"
-            placeholder="Введите другой номер карточки"
+            placeholder="Введите другой email"
             onChange={(e) => {setEmail(e.target.value)}}
         ></input>
         <button className="btn_submit" onClick={updateUser}>

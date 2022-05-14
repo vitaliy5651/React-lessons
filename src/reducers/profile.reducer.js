@@ -5,9 +5,15 @@ export const initialState = {
 export default function ProfileReducer(state = initialState, action){
     switch(action.type){
         case 'Set_Users':
-            return {users: action.data}
+            return {
+                ...state,
+                users: action.data
+            }
         case 'Update_User':
-            return { users: action.result}
+            return {
+                ...state,
+                users: action.result
+            }
         default: 
         return state
     }

@@ -1,6 +1,5 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { v4 as uuidv4 } from 'uuid';
 import GetButton from "../Mybutton";
 import FormProfile from "./formProfile";
 import styles from "./ProfileUser.css"
@@ -12,13 +11,11 @@ return(
     <div className="Profile" style={styles}>
     <FormProfile />
     <GetButton isProduct = {false}/>
-    {getUsers.users.map((el) => {return(
-    <div className="user_data" key={uuidv4('')}>
-        <div className="user_name">{el.name}</div>
-        <div className="user_username">{el.username}</div>
-        <div className="user_email">{el.email}</div>
+    <div className="user_data">
+        <div className="user_name">{getUsers.users.name}</div>
+        <div className="user_username">{getUsers.users.username}</div>
+        <div className="user_email">{getUsers.users.email}</div>
     </div>
-    )})}
     </div>
 )
 }
