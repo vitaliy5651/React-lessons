@@ -7,12 +7,12 @@ import { UpdateUser } from "../../actions/users.action";
 
 const FormProfile = () => {
     const [name, setName] = useState('')
-    const [username, setUsername] = useState('')
-    const [email, setEmail] = useState('')
+    const [surname, setSurname] = useState('')
+    const [cartNumber, setCartNumber] = useState('')
     const dispatch = useDispatch()
     function updateUser (e){
         e.preventDefault();
-        const result = { name, username, email };
+        const result = { name, surname, cartNumber };
         dispatch(UpdateUser(result))
     }
     return(
@@ -26,14 +26,14 @@ const FormProfile = () => {
         <input
             className="input"
             type="text"
-            placeholder="Введите другое имя пользователя"
-            onChange={(e) => {setUsername(e.target.value)}}
+            placeholder="Введите другую фамилию"
+            onChange={(e) => {setSurname(e.target.value)}}
         />
         <input
             className="input"
             type="text"
-            placeholder="Введите другой email"
-            onChange={(e) => {setEmail(e.target.value)}}
+            placeholder="Введите другой номер карточки"
+            onChange={(e) => {setCartNumber(e.target.value)}}
         ></input>
         <button className="btn_submit" onClick={updateUser}>
             Изменить данные

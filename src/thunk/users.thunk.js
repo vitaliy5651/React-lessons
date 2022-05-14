@@ -1,4 +1,4 @@
-import { SetUsers } from "../actions/users.action";
+/*import { SetUsers } from "../actions/users.action";
 import { usersQuery } from "../services/users.service";
 
 
@@ -12,4 +12,4 @@ export const allUsers = () => (dispatch) => {
     .catch((err) => {
       dispatch({ type: "Set_Err", data: err });
     });
-};
+};*/
