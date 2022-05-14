@@ -1,0 +1,1 @@
+export const CatchError = (err) => { return { type: "Set_Err", data: err }}

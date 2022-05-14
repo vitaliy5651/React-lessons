@@ -6,17 +6,14 @@ import { allUsers } from "../thunk/users.thunk";
 
 
 const GetButton = (props) => {
- 
+
   const dispatch = useDispatch()
   const handleGetProducts = () => {
     dispatch(allProducts());
   };
-  const handleGetUsers = () => {
-    dispatch(allUsers())
-  }
   return (
-    <button className="Get_items" onClick={props.isProducts ? handleGetProducts : handleGetUsers}>
-      { props.isProducts ? 'Получить все товары' : 'Получить всех пользователей'}
+    <button className="Get_items" onClick={handleGetProducts}>
+      Получить все товары
     </button>
   );
 };

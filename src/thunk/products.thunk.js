@@ -1,3 +1,4 @@
+import { CatchError } from "../actions/error.action";
 import { SetProducts } from "../actions/products.actions";
 import { productsQuery } from "../services/products.service";
 
@@ -9,7 +10,7 @@ export const allProducts = () => (dispatch) => {
       dispatch(SetProducts(data));
     })
     .catch((err) => {
-      dispatch({ type: "Set_Err", data: err });
+      dispatch(CatchError(err))
     });
 };
 

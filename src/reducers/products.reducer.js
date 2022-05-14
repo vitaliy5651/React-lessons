@@ -3,7 +3,8 @@ export const initialState = {
   items: [],
   flag: true,
   isLoad: true,
-  btnFlag: true
+  btnFlag: true,
+  err: null
 };
 
 export default function fetchProductsReducer(state = initialState, action) {
@@ -42,6 +43,11 @@ export default function fetchProductsReducer(state = initialState, action) {
           el.title.toLowerCase().includes(action.item.toLowerCase())
         ),
       };
+    case 'Set_Err':
+      return{
+        ...state,
+        err: action.data
+      }
     default:
       return state;
   }
