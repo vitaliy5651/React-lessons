@@ -16,7 +16,7 @@ const InputProfile = ({ isName, isSurname, isCartNumber, cartNumber, setValue })
         setValue(() => e.target.value);
       }}
     />
-    {cartNumber && <ErrorHandler cartNumber={cartNumber}></ErrorHandler>}
+    {cartNumber && <ErrorHandler cartNumber={cartNumber} />}
     </>
   );
 };
