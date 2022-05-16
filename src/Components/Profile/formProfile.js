@@ -29,7 +29,7 @@ const FormProfile = () => {
         surname={surname}
         setValue = {setSurname}
       />
-     <InputProfile
+      <InputProfile
         isCartNumber={true}
         cartNumber = {cartNumber}
         setValue = {setCartNumber}

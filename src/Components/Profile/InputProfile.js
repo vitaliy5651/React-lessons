@@ -1,8 +1,7 @@
 import React from "react";
 import ErrorHandler from "./ErrorHandler";
 
-const InputProfile = ({ isName, isSurname, isCartNumber, name, surname, cartNumber, setValue }) => {
-  console.log('render')
+const InputProfile = ({ isName, isSurname, isCartNumber, cartNumber, setValue }) => {
   return (
       <>
     <input
