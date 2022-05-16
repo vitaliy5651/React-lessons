@@ -4,7 +4,7 @@ import { allProducts } from "../thunk/products.thunk";
 
 
 
-const GetButton = (props) => {
+const GetButton = () => {
  
   const dispatch = useDispatch()
   const handleGetProducts = () => {

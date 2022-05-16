@@ -19,7 +19,7 @@ return(
 
 export default React.memo(ErrorHandler, (prevState, nextState) => {
     switch(nextState.cartNumber.length){
-        case 1:
+        case 1 && 15:
             return false
         case 16:
             return false

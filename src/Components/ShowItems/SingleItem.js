@@ -20,8 +20,8 @@ const SingleItem = (props) => {
             </div>
             <div className="item_description">{el.description}</div>
             {props.isAdmin && <div className="btn">
-            <button className="delete_item" onClick={() => {dispatch(DeleteProducts(el))}}>delete</button>
-            <button className="change_item" onClick={() => {dispatch(SendProductToUpdate(el))}}>change</button>
+            <button className="param_item" onClick={() => {dispatch(DeleteProducts(el))}}>delete</button>
+            <button className="param_item" onClick={() => {dispatch(SendProductToUpdate(el))}}>change</button>
             </div>}
             </div>
             )
