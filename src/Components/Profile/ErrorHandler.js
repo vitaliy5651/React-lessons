@@ -1,7 +1,7 @@
 import React, { useMemo } from "react"
 
 const ErrorHandler = ({cartNumber}) => {
-    console.log("ErrorHandler")
+    
     const getWarning = useMemo( () => {
         if(cartNumber.length < 16){
             return 'Введено меньше символов' 

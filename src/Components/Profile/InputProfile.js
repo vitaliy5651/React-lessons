@@ -2,7 +2,6 @@ import React from "react";
 import ErrorHandler from "./ErrorHandler";
 
 const InputProfile = ({ isName, isSurname, isCartNumber, name, surname, cartNumber, setValue }) => {
-  console.log('enter')
   return (
       <>
     <input
@@ -31,4 +30,5 @@ if(prevState.name !== nextState.name){
   return false
 }
 return true
-});
+}
+);
