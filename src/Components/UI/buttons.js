@@ -1,32 +1,22 @@
 import React, { useState } from "react";
 import btnStyle from "./button.css";
-import CreateNews from "./CreateNews/CreateNews";
-import View from "./view/showNews";
+import CreateNews from "../CreateNews/CreateNews";
+import ShowNews from "../ShowNews/showNews";
+import { useDispatch, useSelector } from "react-redux";
 
-const Buttons = (props) => {
-    const [news, setNews] = useState(props.info);
+const Buttons = () => {
     const [flag, setFlag] = useState(true);
-
+    const dispatch = useDispatch()
+    const stateNews = useSelector(state => state.fetchNewsReducer)
     function searchNews(event) {
         const searchNew = event.target.value;
-        const newFilter = [...news].filter((value) => {
-            return value.title.toLowerCase().includes(searchNew.toLowerCase());
-        });
-        if (newFilter.length === 0) {
-            setNews(props.info);
-        } else {
-            setNews(newFilter);
-        }
+            dispatch({type: 'Success_Search', searchNew});
     }
 
     return (
         <div className="btn_news" style={btnStyle}>
             <h1>News</h1>
-            <CreateNews
-                setNewNews={(value) => {
-                    setNews([value, ...news]);
-                }}
-            />
+            <CreateNews />
             <div className="nav">
                 <button
                     className="view_news"
@@ -39,15 +29,15 @@ const Buttons = (props) => {
                 <button
                     className="reverse_news"
                     onClick={() => {
-                        setNews([...news].reverse());
+                        dispatch({type: 'Reverse_News' , result: stateNews.news})
                     }}
                 >
-                    Change news
+                    Reverse news
                 </button>
                 <button
                     className="home"
                     onClick={() => {
-                        setNews(props.info);
+                        dispatch({type: 'Return_initialState'})
                     }}
                 >
                     Home
@@ -59,7 +49,7 @@ const Buttons = (props) => {
                 placeholder="Input News"
                 onChange={searchNews}  >
             </input>
-            <View data={flag ? [news[0]] : news} />
+            <ShowNews data={flag ? [stateNews.news[0]] : stateNews.news} />
         </div>
     );
 };
