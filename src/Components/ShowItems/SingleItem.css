@@ -1,5 +1,9 @@
 .item_image{
     height: 400px;
+    padding-bottom: 20px;
+}
+.item_description{
+    padding-bottom: 20px;
 }
 
 .single_item{
@@ -82,4 +86,10 @@
 }
 .param_item:disabled:before {
 	filter: grayscale(100%);
+}
+.item_title{
+padding-top: 20px;
+padding-bottom: 20px;
+font-size: large;
+font-weight: bold;
 }
