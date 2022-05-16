@@ -16,13 +16,16 @@ function App() {
 
   return (
     <div className='wrapper'>
-    <div className='link_nav'>
     <input type="checkbox" id="nav-toggle" hidden></input>
-    <label className="nav-toggle"></label>
-    <Link to={'/'} >Home</Link>
-    <Link to={'/Admin_part'} >Admin Part</Link>
-    <Link to={'/User_part'} >User Part</Link>
-    <Link to={'/Profile'} >Profile</Link>
+    <div className='link_nav'>
+    <label htmlFor='nav-toggle' className="nav-toggle"></label>
+    <h2 className='Logo'>Iphone store</h2>
+    <ul>
+    <li><Link to={'/'} >Home</Link></li>
+    <li><Link to={'/Admin_part'} >Admin Part</Link></li>
+    <li><Link to={'/User_part'} >User Part</Link></li>
+    <li><Link to={'/Profile'} >Profile</Link></li>
+    </ul>
     </div>
     <Routes >
       <Route path = {'/'} element = {<Home />}></Route>
