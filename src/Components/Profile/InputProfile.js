@@ -2,6 +2,7 @@ import React from "react";
 import ErrorHandler from "./ErrorHandler";
 
 const InputProfile = ({ isName, isSurname, isCartNumber, name, surname, cartNumber, setValue }) => {
+  console.log('render')
   return (
       <>
     <input
@@ -21,14 +22,4 @@ const InputProfile = ({ isName, isSurname, isCartNumber, name, surname, cartNumb
   );
 };
 
-export default React.memo(InputProfile, (prevState, nextState) => {
-if(prevState.name !== nextState.name){
-  return false
-}else if(prevState.surname !== nextState.surname){
-  return false
-}else if(prevState.cartNumber !== nextState.cartNumber){
-  return false
-}
-return true
-}
-);
+export default React.memo(InputProfile);

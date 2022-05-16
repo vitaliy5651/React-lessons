@@ -17,6 +17,8 @@ function App() {
   return (
     <div className='wrapper'>
     <div className='link_nav'>
+    <input type="checkbox" id="nav-toggle" hidden></input>
+    <label className="nav-toggle"></label>
     <Link to={'/'} >Home</Link>
     <Link to={'/Admin_part'} >Admin Part</Link>
     <Link to={'/User_part'} >User Part</Link>
