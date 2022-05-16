@@ -4,6 +4,7 @@ import { SearchProduct } from "../../actions/products.actions";
 import Loader from "../loader/loader";
 import GetButton from "../Mybutton";
 import SingleItem from "../ShowItems/SingleItem";
+import styles from "./User.css"
 
 const User = (props) => {
     const [ item, setItem ] = useState('')
@@ -11,7 +12,7 @@ const User = (props) => {
     const dispatch = useDispatch()
 
     return(
-    <div className="User">
+    <div className="User" style={styles}>
         <input
             className="search_product"
             type="text"
