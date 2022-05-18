@@ -1,22 +1,35 @@
 import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { v4 as uuidv4 } from 'uuid';
 import { AddProducts, UpdateProduct } from "../actions/products.actions";
+import { useAppSelector } from "../hooks";
 
-const Form = (props) => {
-  const products = useSelector((state) => state.fetchProductsReducer)
+
+export interface IResult {
+  id: string,
+  title: string,
+  description: string,
+  urlToImg: string
+}
+
+interface IForm{
+  isCreate: boolean
+}
+
+const Form: React.FC<IForm> = (props) => {
+  const products = useAppSelector((state) => state.fetchProductsReducer)
   const dispatch = useDispatch()
-  const [title, setTitle] = useState();
-  const [description, setDescription] = useState();
-  const [imgPath, setImgPath] = useState();
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [imgPath, setImgPath] = useState('');
 
-  function createProduct(e) {
+  function createProduct(e: any) {
     e.preventDefault();
-    const result = {id: uuidv4(), title, description, urlToImg: imgPath };
+    const result: IResult = {id: uuidv4(), title, description, urlToImg: imgPath };
     dispatch(AddProducts(result));
   }
 
-  function updateProduct(e) {
+  function updateProduct(e: any) {
     e.preventDefault();
     const result = {
       id: products.el.id,
@@ -29,17 +42,17 @@ const Form = (props) => {
 
   useEffect(() => {
     setTitle(
-      products.el === ""
+      products.el.title === ""
         ? ""
         : products.el.title
     );
     setDescription(
-      products.el === ""
+      products.el.description === ""
         ? ""
         : products.el.description
     );
     setImgPath(
-      products.el === ""
+      products.el.urlToImg === ""
         ? ""
         : products.el.urlToImg
     );

@@ -1,3 +1,5 @@
+import { ActionType, UsersActions } from "../actions/users.action"
+
 export const initialState = {
     users:{
         name: 'Григорий',
@@ -6,17 +8,17 @@ export const initialState = {
     }
 }
 
-export default function ProfileReducer(state = initialState, action){
+export default function ProfileReducer(state = initialState, action: UsersActions){
     switch(action.type){
         /*case 'Set_Users':
             return {
                 ...state,
                 users: action.data
             }*/
-        case 'Update_User':
+        case ActionType.Update_Action:
             return {
                 ...state,
-                users: action.result
+                users: action.payload
             }
         default: 
         return state

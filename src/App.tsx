@@ -1,12 +1,11 @@
-import './App.css';
-import { Routes, Route, Link } from 'react-router-dom';
+import React from 'react';
+import styles from './App.css'
 import Home from './Components/Home/home';
 import Admin from './Components/Admin/Admin';
 import User from './Components/User/User';
 import Profile from './Components/Profile/ProfileUser';
 import { useState } from 'react';
-
-//import Data from './Components/data/data';
+import { Link, Route, Routes } from 'react-router-dom';
 
 function App() {
 
@@ -15,7 +14,7 @@ function App() {
 
 
   return (
-    <div className='wrapper'>
+    <div className='wrapper' style={styles}>
     <input type="checkbox" id="nav-toggle" hidden></input>
     <div className='link_nav'>
     <label htmlFor='nav-toggle' className="nav-toggle"></label>

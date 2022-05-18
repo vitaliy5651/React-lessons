@@ -4,6 +4,10 @@ import home from "./home.css";
 const Home = () => {
   return (
     <div className="Home" style={home}>
+       <label className="switch">
+      <input type="checkbox" />
+      <span className="slider round"></span>
+      </label>
       <div className="home_title">
         Здарова!!! Страница создана для того чтобы ты смог(ла) полюбоваться на
         картинки красивых Iphone, на которые у тебя нет денег :)

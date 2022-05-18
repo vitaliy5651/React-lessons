@@ -1,35 +1,42 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 import { UpdateUser } from "../../actions/users.action";
+import { useAppDispatch } from "../../hooks";
 import InputProfile from "./InputProfile";
 
+export interface IUser {
+  name: string,
+  surname: string,
+  cartNumber: string
+}
 const FormProfile = () => {
-  const [name, setName] = useState("");
-  const [surname, setSurname] = useState("");
-  const [cartNumber, setCartNumber] = useState("");
-  const dispatch = useDispatch();
+  const [name, setName] = useState('');
+  const [surname, setSurname] = useState('');
+  const [cartNumber, setCartNumber] = useState('');
+  const dispatch = useAppDispatch()
 
 
-  const updateUser = (e) => {
+  const updateUser = (e: any) => {
     e.preventDefault();
-    const result = { name, surname, cartNumber };
-    dispatch(UpdateUser(result));
+    const user: IUser = { name, surname, cartNumber };
+    dispatch(UpdateUser(user));
   }
 
 
   return (
     <form className="update_profile">
       <InputProfile
-        isName = {true}
+        placeholder = 'Введите новое имя'
         name={name}
         setValue = {setName}
       />
       <InputProfile
+        placeholder = 'Введите новую фамилию'
         isSurname = {true}
         surname={surname}
         setValue = {setSurname}
       />
       <InputProfile
+        placeholder = 'Введите новый номер карты'
         isCartNumber={true}
         cartNumber = {cartNumber}
         setValue = {setCartNumber}
