@@ -15,8 +15,8 @@ const GetButton = (props) => {
     dispatch(allUsers())
   }
   return (
-    <button className="Get_items" onClick={props.isProducts ? handleGetProducts : handleGetUsers}>
-      { props.isProducts ? 'Получить все товары' : 'Получить всех пользователей'}
+    <button className="Get_items" onClick={props.isProduct ? handleGetProducts : handleGetUsers}>
+      { props.isProduct ? 'Получить все товары' : 'Получить всех пользователей'}
     </button>
   );
 };

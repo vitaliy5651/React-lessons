@@ -19,7 +19,7 @@ const User = (props) => {
             onChange={(e) => {setItem(e.target.value)}}  >
         </input>
         <button className="btn_search" onClick={() => {dispatch(SearchProduct(item))}}>Найти товар</button>
-        {products.btnFlag && <GetButton />}
+        {products.btnFlag && <GetButton isProduct = {false} />}
         {products.isLoad ? <Loader/> : <SingleItem isAdmin = {props.isAdmin} /> }
     </div>
     )
