@@ -8,7 +8,7 @@ interface IProductsState{
   items: IData[]
   flag: boolean,
   isLoad: boolean,
-  btnFlag: boolean
+  btnFlag: boolean,
 }
 
 export const initialState: IProductsState = {

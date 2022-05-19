@@ -33,6 +33,9 @@ const SingleItem = ({isAdmin}: {isAdmin: boolean}) => {
             <button className="param_item" onClick={() => {dispatch(SendProductToUpdate(el))}}>change</button>
             </div>
             }
+            {
+                !isAdmin && <button className="Add_To_Cart">Add to Cart</button>
+            }
             </div>
             )
         }

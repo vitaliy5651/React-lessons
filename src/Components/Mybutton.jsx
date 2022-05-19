@@ -5,7 +5,7 @@ import { allProducts } from "../thunk/products.thunk";
 
 
 const GetButton = () => {
- 
+
   const dispatch = useAppDispatch()
   const handleGetProducts = () => {
     dispatch(allProducts())

@@ -1,0 +1,16 @@
+.panel{
+    display: flex;
+    justify-content: space-between;
+    background-color: #708090;
+    border: 1px solid #2e2a2a;
+    border-radius: 5px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.Cart_component{
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-right: 100px;
+}

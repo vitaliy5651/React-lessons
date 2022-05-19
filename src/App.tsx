@@ -8,6 +8,7 @@ import { useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 import RoleAdmin from './Components/hoc/RoleAdmin';
 import RoleUser from './Components/hoc/RoleUser';
+import Cart from './Components/Cart/Cart';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
     <li><Link to={'/Admin_part'} >Admin Part</Link></li>
     <li><Link to={'/User_part'} >User Part</Link></li>
     <li><Link to={'/Profile'} >Profile</Link></li>
+    <li><Link to = {'/Cart'}>Cart</Link></li>
     </ul>
     </div>
     <Routes >
@@ -46,6 +48,11 @@ function App() {
         <RoleUser>
       <Profile />
       </RoleUser>
+      }></Route>
+      <Route path = {'/Cart'} element = {
+        <RoleUser>
+          <Cart />
+        </RoleUser>
       }></Route>
     </Routes>
     </div>
