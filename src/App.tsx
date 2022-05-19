@@ -6,6 +6,8 @@ import User from './Components/User/User';
 import Profile from './Components/Profile/ProfileUser';
 import { useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
+import RoleAdmin from './Components/hoc/RoleAdmin';
+import RoleUser from './Components/hoc/RoleUser';
 
 function App() {
 
@@ -28,9 +30,23 @@ function App() {
     </div>
     <Routes >
       <Route path = {'/'} element = {<Home />}></Route>
-      <Route path={'/Admin_part'} element = {<Admin isAdmin = {isAdmin} />}></Route>
-      <Route path = {'/User_part'} element = {<User isAdmin = {!isAdmin} />}></Route>
-      <Route path={'/Profile'} element = {<Profile />}></Route>
+      <Route path={'/Admin_part'} element = { 
+      <RoleAdmin>
+        <Admin isAdmin = {isAdmin} />
+        </RoleAdmin>
+      }>
+      </Route>
+      <Route path = {'/User_part'} element = {
+        <RoleUser>
+      <User isAdmin = {!isAdmin} />
+      </RoleUser>
+      }>
+      </Route>
+      <Route path={'/Profile'} element = {
+        <RoleUser>
+      <Profile />
+      </RoleUser>
+      }></Route>
     </Routes>
     </div>
   );

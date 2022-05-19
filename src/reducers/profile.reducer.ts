@@ -5,16 +5,23 @@ export const initialState = {
         name: 'Григорий',
         surname: 'Кандратьевич',
         cartNumber: '1234567891234567'
-    }
+    },
+    roleIsAdmin: false,
+    roleIsUser: true
 }
 
 export default function ProfileReducer(state = initialState, action: UsersActions){
     switch(action.type){
-        /*case 'Set_Users':
+        case ActionType.Change_Role_User:
             return {
                 ...state,
-                users: action.data
-            }*/
+                roleIsUser: action.payload
+            }
+        case ActionType.Change_Role:
+            return {
+                ...state,
+                roleIsAdmin: action.payload
+            }
         case ActionType.Update_Action:
             return {
                 ...state,
