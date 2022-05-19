@@ -1,15 +1,18 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { SearchProduct } from "../../actions/products.actions";
+import { useAppDispatch, useAppSelector } from "../../hooks";
 import Loader from "../loader/loader";
 import GetButton from "../Mybutton";
 import SingleItem from "../ShowItems/SingleItem";
 import styles from "./User.css"
 
-const User = (props) => {
+interface UserPropsType {
+    isAdmin: boolean
+}
+const User: React.FC<UserPropsType> = (props) => {
     const [ item, setItem ] = useState('')
-    const products = useSelector((state) => state.fetchProductsReducer)
-    const dispatch = useDispatch()
+    const products = useAppSelector((state) => state.fetchProductsReducer)
+    const dispatch = useAppDispatch()
 
     return(
     <div className="User" style={styles}>

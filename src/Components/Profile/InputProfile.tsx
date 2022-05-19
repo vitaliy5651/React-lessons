@@ -1,19 +1,18 @@
 import React from "react";
 
 interface IProfileInput{
-  name: string,
-  surname: string,
-  cartNumber: string,
-  setValue: () => void
+  placeholder: string,
+  setValue: (e: any) => void
 }
-const InputProfile: React.FC<IProfileInput> = ({setValue}: IProfileInput) => {
+const InputProfile: React.FC<IProfileInput> = ({setValue, placeholder}: IProfileInput) => {
   return (
       <>
     <input
+      placeholder={placeholder}
       className="input"
       type="text"
-      onChange={(e: React.ChangeEvent) => {
-        setValue(() => e.target.value);
+      onChange={(e: any) => {
+        setValue(e.target.value);
       }}
     />
     </>

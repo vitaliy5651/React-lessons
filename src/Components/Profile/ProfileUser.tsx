@@ -1,11 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../../hooks";
 import FormProfile from "./formProfile";
 import styles from "./ProfileUser.css"
 
 
 const Profile = () => {
-    const getUsers = useSelector((state) => state.ProfileReducer)
+    const getUsers = useAppSelector((state) => state.ProfileReducer)
 return(
     <div className="Profile" style={styles}>
     <FormProfile />

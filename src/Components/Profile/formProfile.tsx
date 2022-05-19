@@ -9,9 +9,9 @@ export interface IUser {
   cartNumber: string
 }
 const FormProfile = () => {
-  const [name, setName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [cartNumber, setCartNumber] = useState('');
+  const [name, setName] = useState<string>('');
+  const [surname, setSurname] = useState<string>('');
+  const [cartNumber, setCartNumber] = useState<string>('');
   const dispatch = useAppDispatch()
 
 
@@ -21,24 +21,18 @@ const FormProfile = () => {
     dispatch(UpdateUser(user));
   }
 
-
   return (
     <form className="update_profile">
       <InputProfile
         placeholder = 'Введите новое имя'
-        name={name}
         setValue = {setName}
       />
       <InputProfile
         placeholder = 'Введите новую фамилию'
-        isSurname = {true}
-        surname={surname}
         setValue = {setSurname}
       />
       <InputProfile
         placeholder = 'Введите новый номер карты'
-        isCartNumber={true}
-        cartNumber = {cartNumber}
         setValue = {setCartNumber}
         />
       <button className="btn_submit" onClick={updateUser}>
