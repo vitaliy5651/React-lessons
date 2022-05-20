@@ -22,7 +22,6 @@ const dispatch = useAppDispatch()
             <CartButtons value = {'-'} className = {'RemoveOne'} onClick = {() => {dispatch(SetCount({title: el.title, count: el.count - 1}))}}/>
             </div>
         </div>})}
-        <div className="Cart_info"></div>
     </div>
     )
 }
