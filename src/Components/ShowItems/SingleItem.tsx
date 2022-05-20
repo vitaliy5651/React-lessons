@@ -3,6 +3,8 @@ import { v4 as uuidv4 } from 'uuid';
 import styles from './SingleItem.css'
 import { DeleteProducts, SendProductToUpdate } from "../../actions/products.actions";
 import { useAppDispatch, useAppSelector } from "../../hooks";
+import CartButtons from "../Cart/CartButtons";
+import { AddProductToCart } from "../../actions/cart.actions";
 
 export interface IElement{
     id: string,
@@ -12,7 +14,6 @@ export interface IElement{
 }
 
 const SingleItem = ({isAdmin}: {isAdmin: boolean}) => {
-    
     const products = useAppSelector((state) => state.fetchProductsReducer)
     const dispatch = useAppDispatch()
 
@@ -34,7 +35,7 @@ const SingleItem = ({isAdmin}: {isAdmin: boolean}) => {
             </div>
             }
             {
-                !isAdmin && <button className="Add_To_Cart">Add to Cart</button>
+                !isAdmin && <CartButtons className={'Add_to_Cart'} value = {'Add to Cart'} onClick = {() => {dispatch(AddProductToCart({title: el.title, count: 1}))}}/>
             }
             </div>
             )
