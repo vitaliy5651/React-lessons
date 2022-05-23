@@ -15,19 +15,14 @@ export type UpdateAction = {
 
 export type ChangeRoleAction = {
     type: ActionType.Change_Role
-    payload: boolean
+    payload: string
 }
 
-export type ChangeRoleActionUser = {
-    type: ActionType.Change_Role_User
-    payload: boolean
-}
 
 
 export const UpdateUser: (user: IUser) => UpdateAction = (user) => {return {type: ActionType.Update_Action, payload: user}}
 
-export const ChangeRole: (role: boolean) => ChangeRoleAction = (role) => {return {type: ActionType.Change_Role, payload: role}}
+export const ChangeRole: (role: string) => ChangeRoleAction = (role) => {return {type: ActionType.Change_Role, payload: role}}
 
-export const ChangeRoleUser: (role: boolean) => ChangeRoleActionUser = (role) => {return {type: ActionType.Change_Role_User, payload: role}}
 
-export type UsersActions = UpdateAction | ChangeRoleAction | ChangeRoleActionUser
+export type UsersActions = UpdateAction | ChangeRoleAction

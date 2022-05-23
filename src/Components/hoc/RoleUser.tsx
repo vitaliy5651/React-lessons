@@ -5,7 +5,7 @@ import { useAppSelector } from "../../hooks"
 const RoleUser = ({children}: any) => {
     const profile = useAppSelector((state) => state.ProfileReducer)
 
-    if(profile.roleIsUser === false){
+    if(profile.role === 'Admin'){
         return <Navigate to={'/'} />
     }
 return children

@@ -4,6 +4,7 @@ import styles from './Cart.css'
 import { v4 as uuidv4 } from 'uuid';
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import { SetCount } from "../../actions/cart.actions";
+import { AddRating } from "../../actions/products.actions";
 
 export interface ICartItems{
     title: string,
@@ -17,9 +18,15 @@ const dispatch = useAppDispatch()
             return el.title && <div className="panel" key={uuidv4()}>
             {el.title}
             <div className="Cart_actions">
-            <CartButtons value = {'+'} className = {'AddOne'} onClick = {() => {dispatch(SetCount({title: el.title, count: el.count + 1}))}}/>
+            <CartButtons value = {'+'} className = {'AddOne'} onClick = {() => {
+                dispatch(SetCount({id: el.id, title: el.title, count: el.count + 1}))
+                dispatch(AddRating({title: el.title, Rating: 1}))
+                }}/>
             {el.count}
-            <CartButtons value = {'-'} className = {'RemoveOne'} onClick = {() => {dispatch(SetCount({title: el.title, count: el.count - 1}))}}/>
+            <CartButtons value = {'-'} className = {'RemoveOne'} onClick = {() => {
+                dispatch(SetCount({id: el.id, title: el.title, count: el.count - 1}))
+                dispatch(AddRating({title: el.title, Rating: -1}))
+                }}/>
             </div>
         </div>})}
     </div>

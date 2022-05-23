@@ -9,7 +9,8 @@ export interface IResult {
   id: string,
   title: string,
   description: string,
-  urlToImg: string
+  urlToImg: string,
+  Rating: number
 }
 
 interface IForm{
@@ -25,7 +26,7 @@ const Form: React.FC<IForm> = (props) => {
 
   function createProduct(e: any) {
     e.preventDefault();
-    const result: IResult = {id: uuidv4(), title, description, urlToImg: imgPath };
+    const result: IResult = {id: uuidv4(), title, description, urlToImg: imgPath, Rating: 0};
     dispatch(AddProducts(result));
   }
 
@@ -36,6 +37,7 @@ const Form: React.FC<IForm> = (props) => {
       title,
       description,
       urlToImg: imgPath,
+      Rating: 0
     };
     dispatch(UpdateProduct(result))
   }

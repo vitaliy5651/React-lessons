@@ -7,7 +7,7 @@ const RoleAdmin = ({children}: any) => {
 const profile = useAppSelector((state) => state.ProfileReducer)
 
 
-if(profile.roleIsAdmin === false){
+if(profile.role === 'User'){
     return <Navigate to={'/'}/>
 }
 return children

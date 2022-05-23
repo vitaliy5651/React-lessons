@@ -12,11 +12,11 @@ interface IProductsState{
 }
 
 export const initialState: IProductsState = {
-  el: {id:'', title: '', description: '', urlToImg: ''},
+  el: {id:'', title: '', description: '', urlToImg: '', Rating: 0},
   items: [],
   flag: true,
   isLoad: true,
-  btnFlag: true
+  btnFlag: true,
 };
 
 export default function fetchProductsReducer(state = initialState,  action: ProductsAction): IProductsState {
@@ -54,6 +54,23 @@ export default function fetchProductsReducer(state = initialState,  action: Prod
           el.title.toLowerCase().includes(action.payload.toLowerCase())
         ),
       };
+      case ActionType.AddRating:
+        return{
+          ...state, items: state.items.map((el) => {
+            if(el.title === action.payload.title){
+              el.Rating += action.payload.Rating
+            }
+            return el
+          })
+        }
+        case ActionType.FilterTopSell:
+          return {...state, items: state.items.sort((currEl, nextEl) => {
+            return nextEl.Rating - currEl.Rating
+          })}
+          case ActionType.FilterBadSell:
+            return {...state, items: state.items.sort((currEl, nextEl) => {
+              return currEl.Rating - nextEl.Rating
+            })}
     default:
       return state;
   }

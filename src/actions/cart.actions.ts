@@ -1,6 +1,7 @@
 export interface Item{
     title: string,
-    count: number
+    count: number,
+    id: string
 }
 export enum ActionType{
     Add_To_Cart = 'Add_To_Cart',

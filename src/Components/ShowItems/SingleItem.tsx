@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { v4 as uuidv4 } from 'uuid';
 import styles from './SingleItem.css'
-import { DeleteProducts, SendProductToUpdate } from "../../actions/products.actions";
+import { AddRating, DeleteProducts, SendProductToUpdate } from "../../actions/products.actions";
 import { useAppDispatch, useAppSelector } from "../../hooks";
 import CartButtons from "../Cart/CartButtons";
 import { AddProductToCart } from "../../actions/cart.actions";
@@ -10,7 +10,8 @@ export interface IElement{
     id: string,
     title: string,
     description: string,
-    urlToImg: string
+    urlToImg: string,
+    Rating: number
 }
 
 const SingleItem = ({isAdmin}: {isAdmin: boolean}) => {
@@ -24,6 +25,7 @@ const SingleItem = ({isAdmin}: {isAdmin: boolean}) => {
             return(
             <div className="single_item" key={uuidv4()} style={styles}>
             <div className="item_title">{el.title}</div>
+            <div className="item_rating">Количеcтво продаж: {el.Rating}</div>
             <div className="item_image">
             <img alt="img" className="item_image" src={el.urlToImg}/>
             </div>
@@ -35,7 +37,10 @@ const SingleItem = ({isAdmin}: {isAdmin: boolean}) => {
             </div>
             }
             {
-                !isAdmin && <CartButtons className={'Add_to_Cart'} value = {'Add to Cart'} onClick = {() => {dispatch(AddProductToCart({title: el.title, count: 1}))}}/>
+                !isAdmin && <CartButtons className={'Add_to_Cart'} value = {'Add to Cart'} onClick = {() => {
+                    dispatch(AddProductToCart({id: el.id, title: el.title, count: 1}))
+                    dispatch(AddRating({title: el.title, Rating: 1}))
+            }}/>
             }
             </div>
             )

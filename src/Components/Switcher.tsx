@@ -1,5 +1,5 @@
 import React from "react";
-import { ChangeRole, ChangeRoleUser } from "../actions/users.action";
+import { ChangeRole} from "../actions/users.action";
 import { useAppDispatch, useAppSelector } from "../hooks";
 
 const Switcher = () => {
@@ -7,8 +7,11 @@ const profile = useAppSelector((state) => state.ProfileReducer)
 const dispatch = useAppDispatch()
 
 const roleParam = (e: string) => {
-dispatch(ChangeRole(!profile.roleIsAdmin))
-dispatch(ChangeRoleUser(!profile.roleIsUser))
+    if(profile.role === 'User'){
+        dispatch(ChangeRole('Admin'))
+    }else{
+        dispatch(ChangeRole('User'))
+    }
 }
 
     return (
