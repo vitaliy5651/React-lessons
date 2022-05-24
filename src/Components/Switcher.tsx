@@ -16,7 +16,7 @@ const roleParam = (e: string) => {
 
     return (
         <label className="switch">
-        <input type="checkbox" onChange={(e: React.FormEvent<HTMLInputElement>) => roleParam(e.currentTarget.value)}/>
+        <input type="radio" onChange={(e: React.FormEvent<HTMLInputElement>) => roleParam(e.currentTarget.value)}/>
         <span className="slider round"></span>
         </label>
     )

@@ -27,6 +27,7 @@ export default function CartItemsReducer(state = initialState,  action: CartActi
                 }
                 return el
             })
+            
         }
         return {...state, CartItems: state.CartItems}
         case ActionType.Set_Count:

@@ -1,11 +1,14 @@
 import React from "react";
+import { useAppSelector } from "../../hooks";
 import Switcher from "../Switcher";
 import home from "./home.css";
 
 const Home = () => {
+  const profile = useAppSelector((state) => state.ProfileReducer)
   return (
     <div className="Home" style={home}>
       <Switcher />
+      <div className="Role">Вы вошли как: {profile.role}</div>
       <div className="home_title">
         Здарова!!! Страница создана для того чтобы ты смог(ла) полюбоваться на
         картинки красивых Iphone, на которые у тебя нет денег :)
