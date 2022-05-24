@@ -1,4 +1,3 @@
-import { isTemplateExpression } from "typescript"
 import { ActionType, CartAction, Item } from "../actions/cart.actions"
 
 
@@ -18,15 +17,17 @@ export default function CartItemsReducer(state = initialState,  action: CartActi
             if(state.CartItems.length === 0){
                 state.CartItems.push(action.payload)
             }else{
-                state.CartItems.map((el) => {
-                    console.log(el)
-                    if(el.id === action.payload.id){
-                        el.count +=action.payload.count
-                        return el
-                    }else{
-                        return state.CartItems.push(action.payload)
-                }})
-            }
+            state.CartItems.map((el) => {
+                console.log(action.payload.id)
+                if(el.id === action.payload.id){
+                    el.count += action.payload.count
+                    return el
+                }else{
+                    state.CartItems.push(action.payload)
+                }
+                return el
+            })
+        }
         return {...state, CartItems: state.CartItems}
         case ActionType.Set_Count:
             return {...state, CartItems: state.CartItems.map((el) => {
