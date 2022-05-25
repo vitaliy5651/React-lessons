@@ -13,8 +13,7 @@ const roleParam = (e: string) => {
         dispatch(ChangeRole('User'))
     }
 }
-
-    return (
+return (
         <label className="switch">
         <input type="radio" onChange={(e: React.FormEvent<HTMLInputElement>) => roleParam(e.currentTarget.value)}/>
         <span className="slider round"></span>

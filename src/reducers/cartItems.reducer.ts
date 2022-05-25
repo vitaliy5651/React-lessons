@@ -17,17 +17,13 @@ export default function CartItemsReducer(state = initialState,  action: CartActi
             if(state.CartItems.length === 0){
                 state.CartItems.push(action.payload)
             }else{
-            state.CartItems.map((el) => {
-                console.log(action.payload.id)
-                if(el.id === action.payload.id){
-                    el.count += action.payload.count
-                    return el
+            state.CartItems.map((value) => {
+                if(state.CartItems.find((el) => el.id === action.payload.id)){
+                    return value.count += action.payload.count
                 }else{
-                    state.CartItems.push(action.payload)
+                    return state.CartItems.push(action.payload)
                 }
-                return el
             })
-            
         }
         return {...state, CartItems: state.CartItems}
         case ActionType.Set_Count:

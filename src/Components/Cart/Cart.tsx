@@ -15,7 +15,6 @@ const dispatch = useAppDispatch()
     return( 
     <div className="Cart_component" style={styles}>
         {CartProduct.CartItems.map((el) =>  {
-            console.log(el.count)
             return el.title && <div className="panel" key={uuidv4()}>
             {el.title}
             <div className="Cart_actions">

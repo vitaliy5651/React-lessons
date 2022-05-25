@@ -58,7 +58,11 @@ export default function fetchProductsReducer(state = initialState,  action: Prod
         return{
           ...state, items: state.items.map((el) => {
             if(el.title === action.payload.title){
+              if(el.Rating < 0){
+                el.Rating = 0
+              }else{
               el.Rating += action.payload.Rating
+              }
             }
             return el
           })
