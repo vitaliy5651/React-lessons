@@ -9,7 +9,7 @@ const Data = () => {
     const newStore = useSelector((state) => state.fetchNewsReducer)
     useEffect(() => {
         fetch(
-            "https://newsapi.org/v2/everything?q=apple&from=2022-04-27&to=2022-04-27&sortBy=popularity&apiKey=7c847bba61dd4639a231e5a60c4986a7"
+            "https://newsapi.org/v2/everything?q=apple&from=2022-06-07&to=2022-06-07&sortBy=popularity&apiKey=7c847bba61dd4639a231e5a60c4986a7"
         )
             .then((res) => res.json())
             .then(
