@@ -1,6 +1,5 @@
 import { ActionType, ProductsAction } from "../actions/products.actions";
 import { IElement } from "../Components/ShowItems/SingleItem";
-//import { IElement } from "../Components/ShowItems/SingleItem";
 import IData from "../thunk/products.thunk";
 
 interface IProductsState{
