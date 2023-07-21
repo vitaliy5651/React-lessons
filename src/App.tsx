@@ -23,10 +23,10 @@ function App() {
     <label htmlFor='nav-toggle' className="nav-toggle"></label>
     <h2 className='Logo'>Iphone store</h2>
     <ul>
-    <li><Link to={'/'} >Home</Link></li>
-    <li><Link to={'/Admin_part'} >Admin Part</Link></li>
-    <li><Link to={'/User_part'} >User Part</Link></li>
-    <li><Link to={'/Profile'} >Profile</Link></li>
+    <li><Link to={'/'}>Home</Link></li>
+    <li><Link to={'/Admin_part'}>Admin Part</Link></li>
+    <li><Link to={'/User_part'}>User Part</Link></li>
+    <li><Link to={'/Profile'}>Profile</Link></li>
     <li><Link to = {'/Cart'}>Cart</Link></li>
     </ul>
     </div>

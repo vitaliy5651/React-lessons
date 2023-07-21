@@ -12,9 +12,11 @@ export interface ICartItems{
 const Cart = () => {
 const CartProduct = useAppSelector((state) => state.CartItemsReducer)
 const dispatch = useAppDispatch()
+
+console.log(CartProduct)
     return( 
     <div className="Cart_component" style={styles}>
-        {CartProduct.CartItems.map((el) =>  {
+        {CartProduct.cartItems.map((el) =>  {
             return el.title && <div className="panel" key={uuidv4()}>
             {el.title}
             <div className="Cart_actions">

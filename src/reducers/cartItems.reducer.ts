@@ -3,31 +3,30 @@ import { ActionType, CartAction, Item } from "../actions/cart.actions"
 
 interface ICartState {
     item: Item
-    CartItems: Array<Item>,
+    cartItems: Array<Item>,
 }
 export const initialState: ICartState = {
     item: {id: '', title: '', count:0},
-    CartItems: [],
+    cartItems: [],
 }
 
 
 export default function CartItemsReducer(state = initialState,  action: CartAction): ICartState {
     switch (action.type) {
         case ActionType.Add_To_Cart:
-            if(state.CartItems.length === 0){
-                state.CartItems.push(action.payload)
-            }else{
-            state.CartItems.map((value) => {
-                if(state.CartItems.find((el) => el.id === action.payload.id)){
-                    return value.count += action.payload.count
+            const cartItems = state.cartItems.reduce((acc: Item[], curr: Item) => {
+                console.log(action.payload)
+                if(action.payload.id === curr.id){
+                    curr = {...curr, count: curr.count++}
                 }else{
-                    return state.CartItems.push(action.payload)
+                    acc.push(action.payload)
                 }
-            })
-        }
-        return {...state, CartItems: state.CartItems}
+                return acc
+            }, [])
+            console.log(state)
+        return {...state, cartItems}
         case ActionType.Set_Count:
-            return {...state, CartItems: state.CartItems.map((el) => {
+            return {...state, cartItems: state.cartItems.map((el) => {
                 if(el.title === action.payload.title){
                     el.count = action.payload.count
                 }if(el.count === 0){
