@@ -14,26 +14,27 @@ export const initialState: ICartState = {
 export default function CartItemsReducer(state = initialState,  action: CartAction): ICartState {
     switch (action.type) {
         case ActionType.Add_To_Cart:
-            const cartItems = state.cartItems.reduce((acc: Item[], curr: Item) => {
-                console.log(action.payload)
-                if(action.payload.id === curr.id){
-                    curr = {...curr, count: curr.count++}
-                }else{
-                    acc.push(action.payload)
-                }
-                return acc
-            }, [])
-            console.log(state)
-        return {...state, cartItems}
+            const matchItem = state.cartItems.find((item) => item.id === action.payload.id)
+            if(matchItem){
+                state.cartItems = state.cartItems.filter((item) => item.id !== matchItem.id)
+                state.cartItems.push({...matchItem, count: matchItem.count + 1})
+            }else{
+                state.cartItems.push(action.payload)
+            }
+        return {...state}
         case ActionType.Set_Count:
-            return {...state, cartItems: state.cartItems.map((el) => {
-                if(el.title === action.payload.title){
-                    el.count = action.payload.count
-                }if(el.count === 0){
-                    el.title = ''
+            state.cartItems = state.cartItems.reduce((acc: Item[], curr: Item) => {
+                if(action.payload.id === curr.id && action.payload.count === 0){
+                    return acc
+                }else if (action.payload.id === curr.id){
+                    acc.push({...curr, count: action.payload.count})
+                    return acc
+                }else{
+                    acc.push(curr)
+                    return acc
                 }
-                return el
-            })}
+            }, [])
+            return {...state}
         default: 
             return state
         }
